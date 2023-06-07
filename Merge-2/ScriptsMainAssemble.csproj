@@ -60,7 +60,7 @@
     <Compile Include="Assets\Scriprs\Items\ItemBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scriprs\ScriptsMainAssemble.asmdef" />
+    <None Include="Assets\Scriprs\Scripts.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
