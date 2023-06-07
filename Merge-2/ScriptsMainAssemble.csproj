@@ -8,12 +8,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
-    <ProjectGuid>{F9593306-9646-AE13-F530-BC0B3EC788BC}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{490A39C5-265D-9790-3BCB-AE66A8A8D514}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>MainField</AssemblyName>
+    <AssemblyName>ScriptsMainAssemble</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -58,9 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scriprs\MainField\Board.cs" />
+    <Compile Include="Assets\Scriprs\Items\ItemBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scriprs\MainField\MainField.asmdef" />
+    <None Include="Assets\Scriprs\ScriptsMainAssemble.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -731,10 +731,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="MainAssembly.csproj">
-      <Project>{32E61209-C431-D10A-0393-12C331130312}</Project>
-      <Name>MainAssembly</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
