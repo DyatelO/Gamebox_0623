@@ -59,6 +59,8 @@
     <Compile Include="Assets\Scriprs\MainField\BoardGridController.cs" />
     <Compile Include="Assets\Scriprs\MainField\Board.cs" />
     <Compile Include="Assets\Scriprs\MainField\ItemGrid.cs" />
+    <Compile Include="Assets\Scriprs\MainField\Tile.cs" />
+    <Compile Include="Assets\Scriprs\MainField\Row.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scriprs\MainField\ItemGrid.asmdef" />
@@ -351,6 +353,12 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>G:\Program Files\2021.3.17f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
