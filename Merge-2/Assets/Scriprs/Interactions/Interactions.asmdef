@@ -1,9 +1,7 @@
 {
-    "name": "Items",
+    "name": "Interactions",
     "rootNamespace": "",
-    "references": [
-        "GUID:f0ba8e70ce2c47b4da55723d0e851141"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
