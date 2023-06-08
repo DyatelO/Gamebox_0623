@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scriprs\Interactions\DragAndDrop.cs" />
+    <Compile Include="Assets\Scriprs\Interactions\ItemSlot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scriprs\Interactions\Interactions.asmdef" />
