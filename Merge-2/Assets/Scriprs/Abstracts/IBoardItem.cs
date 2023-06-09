@@ -7,7 +7,7 @@ public interface IBoardItem
 {
     bool IsFree { get; set; }
     Type ItemType { get; }
-    int MaxItemsInSlot { get; }
+    int MaxItemsInBoardSlot { get; }
     int AmountItems { get; set; }
 
     IBoardItem Clone();
