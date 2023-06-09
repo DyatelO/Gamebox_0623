@@ -69,6 +69,12 @@
     <Compile Include="Assets\Scriprs\MainField\GridSpawnController.cs" />
     <Compile Include="Assets\Scriprs\Abstracts\IBoard.cs" />
     <Compile Include="Assets\Scriprs\Abstracts\IBoardSlot.cs" />
+    <Compile Include="Assets\Scriprs\UI\UiItem.cs" />
+    <Compile Include="Assets\Scriprs\UI\UiSlot.cs" />
+    <Compile Include="Assets\Scriprs\Abstracts\IBoardItemInfo.cs" />
+    <Compile Include="Assets\Scriprs\UI\SpawnItem.cs" />
+    <Compile Include="Assets\Scriprs\UI\Chest.cs" />
+    <Compile Include="Assets\Scriprs\UI\SlotBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -899,10 +905,6 @@
     <ProjectReference Include="Interactions.csproj">
       <Project>{123936BC-2A9B-FCF2-FC1A-C814FE0DF9CE}</Project>
       <Name>Interactions</Name>
-    </ProjectReference>
-    <ProjectReference Include="UISlot.csproj">
-      <Project>{2681621A-6B1C-AB9B-BDBD-390E33D58931}</Project>
-      <Name>UISlot</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

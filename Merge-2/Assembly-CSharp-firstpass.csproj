@@ -873,10 +873,6 @@
       <Project>{123936BC-2A9B-FCF2-FC1A-C814FE0DF9CE}</Project>
       <Name>Interactions</Name>
     </ProjectReference>
-    <ProjectReference Include="UISlot.csproj">
-      <Project>{2681621A-6B1C-AB9B-BDBD-390E33D58931}</Project>
-      <Name>UISlot</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

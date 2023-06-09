@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UiItem : MonoBehaviour,IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class UiItem : MonoBehaviour,IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler
 {
     private RectTransform _rectTransform;
     private Canvas _mainCanvas;
 
     private CanvasGroup _canvasGroup;
+
+    private GridSpawnController _gridSpawnController;
 
     private void Awake()
     {
@@ -16,6 +18,9 @@ public class UiItem : MonoBehaviour,IPointerDownHandler, IBeginDragHandler, IDra
         _mainCanvas = GetComponentInParent<Canvas>();
 
         _canvasGroup = GetComponent<CanvasGroup>();
+
+        //_gridSpawnController = FindObjectOfType<GridSpawnController>();
+        //Debug.Log(_gridSpawnController.name);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -28,6 +33,9 @@ public class UiItem : MonoBehaviour,IPointerDownHandler, IBeginDragHandler, IDra
         slotTransform.SetAsLastSibling();
 
         _canvasGroup.blocksRaycasts = false;
+
+
+        //_gridSpawnController.enabled = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -37,9 +45,13 @@ public class UiItem : MonoBehaviour,IPointerDownHandler, IBeginDragHandler, IDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //if()
         transform.localPosition = Vector2.zero;
         _canvasGroup.blocksRaycasts = true;
     }
 
-
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log(eventData.pointerEnter+ " Enter!!!");
+    }
 }

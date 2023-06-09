@@ -7,12 +7,7 @@ public class UiSlot : MonoBehaviour, IDropHandler
 {
     private void Awake()
     {
-        //UIItem item = GetComponentInChildren<UIItem>();
-        //string name = this.GetComponentInChildren<UIItem>().name;
-        //if(name.Contains("_01"))
-        //{
-        //    item.enabled = true;
-        //}
+
     }
 
     public void OnDrop(PointerEventData eventData)
