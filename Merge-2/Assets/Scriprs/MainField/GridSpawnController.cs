@@ -14,9 +14,6 @@ public class GridSpawnController : MonoBehaviour
 
     [SerializeField] private ItemBoardControler boardControler;
 
-    //[SerializeField] private GameObject parentForPrefab;
-
-    //RectTransform rectTransform;
     public int Amount; // = 18;
     //public int Column = 18;
 
@@ -28,15 +25,8 @@ public class GridSpawnController : MonoBehaviour
     public List<UiSlot> emptySlots;
     private void Awake()
     {
-        //GridLayoutGroup 
 
         CreateGrid();
-    }
-
-    private void Start()
-    {
- 
-       //gridGroupe.enabled = false;     
     }
 
     private void SpawnItem()

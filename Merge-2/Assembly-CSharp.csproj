@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scriprs\UI\MengeController.cs" />
     <Compile Include="Assets\Data\ItemScriptableObject\Item.cs" />
     <Compile Include="Assets\Scriprs\UI\ItemBoardControler.cs" />
+    <Compile Include="Assets\Scriprs\UI\ItemMergeControler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 98ce0320793eb984f88e4abdb3c517a3, type: 2}
   Image: {fileID: 1596566683726680891}
+  mergeControler: {fileID: 0}
   ObjectBelow: {fileID: 0}
   ItemType: 1
 --- !u!225 &4707662381651273078

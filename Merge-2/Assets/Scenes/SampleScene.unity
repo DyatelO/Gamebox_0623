@@ -3914,7 +3914,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &310263626
 GameObject:
@@ -4967,7 +4967,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403239672
 GameObject:
@@ -6733,7 +6733,7 @@ Transform:
   - {fileID: 85245389}
   - {fileID: 780222848}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &508060026
 PrefabInstance:
@@ -8896,7 +8896,7 @@ RectTransform:
   - {fileID: 1483056007}
   - {fileID: 204449246}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11170,6 +11170,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780222848}
     m_Modifications:
+    - target: {fileID: 3477369742385419774, guid: 17219fe97840cbc4dbab7d90104aa215, type: 3}
+      propertyPath: mergeControler
+      value: 
+      objectReference: {fileID: 921187886}
     - target: {fileID: 3591194461398236734, guid: 17219fe97840cbc4dbab7d90104aa215, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12049,6 +12053,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916711602}
   m_CullTransparentMesh: 1
+--- !u!1 &921187885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 921187887}
+  - component: {fileID: 921187886}
+  m_Layer: 0
+  m_Name: ItemMergeControler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &921187886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921187885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a70fb2bd8e087948845a6fd3f48b0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot_1: {fileID: 0}
+  slot_2: {fileID: 0}
+  mergeList: []
+--- !u!4 &921187887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921187885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &928985246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13303,7 +13354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   Image: {fileID: 0}
-  ObjectBelow: {fileID: 0}
+  mergeControler: {fileID: 0}
   ItemType: 0
 --- !u!1 &1015935063
 GameObject:
@@ -17360,6 +17411,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780222848}
     m_Modifications:
+    - target: {fileID: 3477369742385419774, guid: 17219fe97840cbc4dbab7d90104aa215, type: 3}
+      propertyPath: mergeControler
+      value: 
+      objectReference: {fileID: 921187886}
     - target: {fileID: 3591194461398236734, guid: 17219fe97840cbc4dbab7d90104aa215, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -20368,7 +20423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   Image: {fileID: 0}
-  ObjectBelow: {fileID: 0}
+  mergeControler: {fileID: 0}
   ItemType: 0
 --- !u!114 &1500580005
 MonoBehaviour:
@@ -23230,6 +23285,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780222848}
     m_Modifications:
+    - target: {fileID: 3477369742385419774, guid: 17219fe97840cbc4dbab7d90104aa215, type: 3}
+      propertyPath: mergeControler
+      value: 
+      objectReference: {fileID: 921187886}
     - target: {fileID: 3591194461398236734, guid: 17219fe97840cbc4dbab7d90104aa215, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -24520,7 +24579,7 @@ RectTransform:
   m_Children:
   - {fileID: 744962507}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -28051,6 +28110,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4083008935545916441, guid: 082297393dd9b31438b5f7c3d2faab79, type: 3}
+      propertyPath: ItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083008935545916441, guid: 082297393dd9b31438b5f7c3d2faab79, type: 3}
+      propertyPath: mergeControler
+      value: 
+      objectReference: {fileID: 921187886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 082297393dd9b31438b5f7c3d2faab79, type: 3}
 --- !u!1001 &2039629970
@@ -28148,6 +28215,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4083008935545916441, guid: bdeb7587964bc7d468bae138c2e97fb8, type: 3}
+      propertyPath: ItemType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083008935545916441, guid: bdeb7587964bc7d468bae138c2e97fb8, type: 3}
+      propertyPath: mergeControler
+      value: 
+      objectReference: {fileID: 921187886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdeb7587964bc7d468bae138c2e97fb8, type: 3}
 --- !u!1 &2045341902

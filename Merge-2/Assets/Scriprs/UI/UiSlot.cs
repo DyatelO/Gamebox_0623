@@ -9,45 +9,46 @@ public class UiSlot : MonoBehaviour, IDropHandler
 
     //public GameObject IteminSlot_1;
     //public GameObject IteminSlot_2;
-    public List<ScriptableObject> itemsByType;
+    public List<Item> itemsByType;
 
-
-    //public UiSlot(List<ScriptableObject> itemsByType)
-    //{
-    //    this.itemsByType = itemsByType;
-    //}
-
-    private void Awake()
-    {
-    }
+    public ItemMergeControler mergeControler;
 
 
     private void Update()
     {
-        if(GetComponentInChildren<UiItem>() == null)
-        {
-            IsEmpty = true;
-        }
+        //if(GetComponentInChildren<UiItem>() == null)
+        //{
+        //    IsEmpty = true;
+        //}
+
+        
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+        if(!itemsByType.Contains(eventData.pointerDrag.GetComponent<UiItem>().item))
+            itemsByType.Add((eventData.pointerDrag.GetComponent<UiItem>().item));
+
+        //if (itemsByType[0].Type != itemsByType[1].Type)
+        //    Debug.Log("NOT EQUAL!!!!!");
+        //    //eventData.pointerDrag.transform = Vector2.zero;
+        //    else
+        //{
+
+        //}
         var droppedItemTransform = eventData.pointerDrag.transform;
         droppedItemTransform.SetParent(transform);
-        droppedItemTransform.localPosition = Vector3.zero;
-
-        IsEmpty = false;    
-
-        //IteminSlot_1 = eventData.pointerDrag.gameObject;
-        //var item1 = IteminSlot_1.GetComponent<UiItem>().ItemType;
-
-        //if (IsEmpty == false && )
-        //{
-        //    IteminSlot_2 = eventData.pointerDrag.gameObject;
-        //    if(!= )
-        //}
+        droppedItemTransform.localPosition = Vector2.zero;
 
 
+
+        IsEmpty = false;
+
+        
+
+        //mergeControler.slot_2 = eventData.pointerDrag.GetComponent<UiItem>().item;
+        
+        //mergeControler.mergeList.Add(eventData.pointerDrag.GetComponent<UiItem>().item);
 
     }
 }
