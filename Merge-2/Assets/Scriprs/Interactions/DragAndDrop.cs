@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum ItemType
-{
-    Axe,
-    Shield,
-    Sword
-}
+
 public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler //, IDropHandler
 {
     [SerializeField] private Canvas _canvas;

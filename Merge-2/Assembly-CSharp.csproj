@@ -75,6 +75,9 @@
     <Compile Include="Assets\Scriprs\UI\SpawnItem.cs" />
     <Compile Include="Assets\Scriprs\UI\Chest.cs" />
     <Compile Include="Assets\Scriprs\UI\SlotBehavior.cs" />
+    <Compile Include="Assets\Scriprs\UI\MengeController.cs" />
+    <Compile Include="Assets\Data\ItemScriptableObject\Item.cs" />
+    <Compile Include="Assets\Scriprs\UI\ItemBoardControler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

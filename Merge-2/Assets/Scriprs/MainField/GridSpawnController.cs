@@ -6,11 +6,13 @@ using UnityEngine.UI;
 using static UnityEditor.Progress;
 //using static UnityEditor.Progress;
 
-//[RequireComponent(typeof( GridLayoutGroup))]
+[RequireComponent(typeof( GridLayoutGroup))]
 public class GridSpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject cellPrefab;
     [SerializeField] private GameObject itemPrefab;
+
+    [SerializeField] private ItemBoardControler boardControler;
 
     //[SerializeField] private GameObject parentForPrefab;
 
@@ -23,7 +25,7 @@ public class GridSpawnController : MonoBehaviour
     private GridLayoutGroup gridGroupe;
     private List<GameObject> slots = new List<GameObject>();
     //private List<Transform> transforms = new List<Transform>(); 
-
+    public List<UiSlot> emptySlots;
     private void Awake()
     {
         //GridLayoutGroup 
@@ -56,7 +58,7 @@ public class GridSpawnController : MonoBehaviour
                 GameObject slot = Instantiate(cellPrefab);
                 slot.name = $"{cellPrefab.name}_{i}{j}";
                 slot.transform.SetParent(this.transform, false);
-                slots.Add(slot);
+                boardControler.boardSlots.Add(slot.GetComponent<UiSlot>());
             }
 
         }
@@ -66,12 +68,6 @@ public class GridSpawnController : MonoBehaviour
         {
             transforms.Add(item.transform);
         }
-        //gridGroupe.enabled = false;
-
-        //for (int i = 0; i < slots.Count; i++)
-        //{
-        //    slots[i].transform.position = transforms[i].position;
-        //}
     }
 
     public void OnGridDisable()
