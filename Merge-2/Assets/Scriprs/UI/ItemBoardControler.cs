@@ -22,6 +22,8 @@ public class ItemBoardControler : MonoBehaviour
         }
 
         return false;
+
+        
     }
 
     public void SpawnNewItem(Item item, UiSlot slot)
