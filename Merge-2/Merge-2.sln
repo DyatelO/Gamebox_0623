@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Items", "Items.csproj", "{DE09E10A-0B3B-ABD4-D320-57C15AABF1B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Board", "Board.csproj", "{63E86012-E02A-95DE-AE9B-CBBD5466BA26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{DE09E10A-0B3B-ABD4-D320-57C15AABF1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE09E10A-0B3B-ABD4-D320-57C15AABF1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE09E10A-0B3B-ABD4-D320-57C15AABF1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63E86012-E02A-95DE-AE9B-CBBD5466BA26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63E86012-E02A-95DE-AE9B-CBBD5466BA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63E86012-E02A-95DE-AE9B-CBBD5466BA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63E86012-E02A-95DE-AE9B-CBBD5466BA26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

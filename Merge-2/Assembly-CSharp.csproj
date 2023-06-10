@@ -930,6 +930,10 @@
       <Project>{44794CC1-E0BE-050A-0C55-A1B04459F461}</Project>
       <Name>MapGenerator</Name>
     </ProjectReference>
+    <ProjectReference Include="Board.csproj">
+      <Project>{63E86012-E02A-95DE-AE9B-CBBD5466BA26}</Project>
+      <Name>Board</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
