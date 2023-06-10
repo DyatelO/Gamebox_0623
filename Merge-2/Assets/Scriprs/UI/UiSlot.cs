@@ -16,31 +16,17 @@ public class UiSlot : MonoBehaviour, IDropHandler
 
     private void Update()
     {
-        //if(GetComponentInChildren<UiItem>() == null)
-        //{
-        //    IsEmpty = true;
-        //}
 
-        
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        if(!itemsByType.Contains(eventData.pointerDrag.GetComponent<UiItem>().item))
-            itemsByType.Add((eventData.pointerDrag.GetComponent<UiItem>().item));
+        //if(!itemsByType.Contains(eventData.pointerDrag.GetComponent<UiItem>().item))
+        //    itemsByType.Add((eventData.pointerDrag.GetComponent<UiItem>().item));
 
-        //if (itemsByType[0].Type != itemsByType[1].Type)
-        //    Debug.Log("NOT EQUAL!!!!!");
-        //    //eventData.pointerDrag.transform = Vector2.zero;
-        //    else
-        //{
-
-        //}
         var droppedItemTransform = eventData.pointerDrag.transform;
         droppedItemTransform.SetParent(transform);
         droppedItemTransform.localPosition = Vector2.zero;
-
-
 
         IsEmpty = false;
 
