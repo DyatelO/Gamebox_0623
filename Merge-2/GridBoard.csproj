@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{63E86012-E02A-95DE-AE9B-CBBD5466BA26}</ProjectGuid>
+    <ProjectGuid>{AECB2E41-5C53-904B-4E0E-168F570D3D87}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Board</AssemblyName>
+    <AssemblyName>GridBoard</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -56,22 +56,12 @@
     <Analyzer Include="G:\Program Files\Microsoft Visual Studio\2022\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scriprs\Board\PickUpTest.cs" />
-    <Compile Include="Assets\Scriprs\Board\Scriptable\Items\Scripts\ShieldObject.cs" />
-    <Compile Include="Assets\Scriprs\Board\Scriptable\Items\Scripts\AxeObject.cs" />
-    <Compile Include="Assets\Scriprs\Board\Item.cs" />
-    <Compile Include="Assets\Scriprs\Board\Scriptable\Items\Scripts\ItemObject.cs" />
-    <Compile Include="Assets\Scriprs\Board\FlexibleGridLayout.cs" />
-    <Compile Include="Assets\Scriprs\Board\Scriptable\Board\Scripts\BoardObject.cs" />
-    <Compile Include="Assets\Scriprs\Board\PanelGroupe.cs" />
-    <Compile Include="Assets\Scriprs\Board\Interfaces\IPickedUp.cs" />
-    <Compile Include="Assets\Scriprs\Board\DisplayBoard.cs" />
-    <Compile Include="Assets\Scriprs\Board\BoardSlot.cs" />
-    <Compile Include="Assets\Scriprs\Board\Scriptable\Items\Scripts\RestoreObject.cs" />
-    <Compile Include="Assets\Scriprs\Board\Board.cs" />
+    <Compile Include="Assets\Scriprs\GridBoard\Merge2test.cs" />
+    <Compile Include="Assets\Scriprs\GridBoard\ClickController.cs" />
+    <Compile Include="Assets\Scriprs\GridBoard\SlotClaster.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scriprs\Board\Board.asmdef" />
+    <None Include="Assets\Scriprs\GridBoard\GridBoard.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
