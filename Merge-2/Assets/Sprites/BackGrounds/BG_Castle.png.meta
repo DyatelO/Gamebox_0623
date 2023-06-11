@@ -137,6 +137,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BG_Castle_1
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 947
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 32, z: 15, w: 32}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bcec569ef1fa904d9ce83c1a93b2850
+      internalID: 1224997312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -148,6 +169,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BG_Castle_1: 1224997312
       BG_Castle_0: -737507587
   spritePackingTag: 
   pSDRemoveMatte: 0
