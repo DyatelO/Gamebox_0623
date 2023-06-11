@@ -5,79 +5,82 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UiBoardItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler, IDropHandler
+namespace Board.UI
 {
-    [SerializeField] private Image itemImage;
-    [SerializeField] private Image borderImage;
-
-    //private CanvasGroup _canvasGroup;
-
-    public event Action<UiBoardItem> OnBoardItemClicked;
-    public event Action<UiBoardItem> OnBoardItemDroppedOn;
-    public event Action<UiBoardItem> OnBoardItemBeginDrag;
-    public event Action<UiBoardItem> OnBoardItemEndDrag;
-    public event Action<UiBoardItem> OnBoardItemDrag;
-
-    private bool isEmpty = true;
-
-
-    private void Awake()
+    public class UiBoardItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler, IDropHandler
     {
-        ResetData();
-        Deselect();
-    }
+        [SerializeField] private Image itemImage;
+        [SerializeField] private Image borderImage;
 
-    public void Deselect()
-    {
-        borderImage.enabled = false;
-    }
+        //private CanvasGroup _canvasGroup;
 
-    public void ResetData()
-    {
-        this.itemImage.gameObject.SetActive(false);
-        isEmpty = false;
-    }
+        public event Action<UiBoardItem> OnBoardItemClicked;
+        public event Action<UiBoardItem> OnBoardItemDroppedOn;
+        public event Action<UiBoardItem> OnBoardItemBeginDrag;
+        public event Action<UiBoardItem> OnBoardItemEndDrag;
+        public event Action<UiBoardItem> OnBoardItemDrag;
 
-    public void SetData(Sprite sprite) //, int quantity)
-    {
-        this.itemImage.gameObject.SetActive(true);
-        this.itemImage.sprite = sprite;
-        //this.quantity.text = quantity + ;
-        isEmpty = false;
-    }
+        private bool isEmpty = true;
 
-    public void Select()
-    {
-        borderImage.enabled = true;
-    }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (isEmpty)
-            return;
-        OnBoardItemBeginDrag?.Invoke(this);
+        private void Awake()
+        {
+            ResetData();
+            Deselect();
+        }
 
-    }
+        public void Deselect()
+        {
+            borderImage.enabled = false;
+        }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        OnBoardItemDroppedOn?.Invoke(this);
-    }
+        public void ResetData()
+        {
+            itemImage.gameObject.SetActive(false);
+            isEmpty = false;
+        }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        OnBoardItemEndDrag?.Invoke(this);
+        public void SetData(Sprite sprite) //, int quantity)
+        {
+            itemImage.gameObject.SetActive(true);
+            itemImage.sprite = sprite;
+            //this.quantity.text = quantity + ;
+            isEmpty = false;
+        }
 
-        //_canvasGroup.blocksRaycasts = true;
-    }
+        public void Select()
+        {
+            borderImage.enabled = true;
+        }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        OnBoardItemDrag?.Invoke(this);
-    }
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (isEmpty)
+                return;
+            OnBoardItemBeginDrag?.Invoke(this);
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        OnBoardItemClicked?.Invoke(this);   
+        }
+
+        public void OnDrop(PointerEventData eventData)
+        {
+            OnBoardItemDroppedOn?.Invoke(this);
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            OnBoardItemEndDrag?.Invoke(this);
+
+            //_canvasGroup.blocksRaycasts = true;
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            OnBoardItemDrag?.Invoke(this);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            OnBoardItemClicked?.Invoke(this);
+        }
     }
 }

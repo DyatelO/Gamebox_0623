@@ -12,7 +12,7 @@ public class UiBoardDescription : MonoBehaviour
 
     public void Awake()
     {
-        ResetDescription();
+        //ResetDescription();
     }
 
     public void ResetDescription()
