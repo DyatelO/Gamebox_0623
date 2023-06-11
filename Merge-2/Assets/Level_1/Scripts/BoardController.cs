@@ -10,23 +10,55 @@ namespace Board
     public class BoardController : MonoBehaviour
     {
         [SerializeField] private UIBoardPage boardPageUI;
+        [SerializeField] private BoardSO boardData;
 
-        [field: SerializeField] public List<BoardItem> boardItems;
-
+        [SerializeField] private List<BoardItem> boardItems; // = new List<BoardItem>();
+        //public List<BoardItem> initialItems = new List<BoardItem>();
         [field: SerializeField] public int Size { get; private set; } = 10;
 
+        public event Action<Dictionary<int, BoardItem>> OnInventoryUpdated;
 
         private void Awake()
         {
             PrepareUI();
-
+            PrepareBoardData();
             boardPageUI.Show();
 
         }
-
-        private void Start()
+        private void PrepareBoardData()
         {
-            //boardItems = boardData.boardItems;
+            Initialize();
+            OnInventoryUpdated += UpdateBoardUI;
+
+            List<BoardItem> initialItems = new List<BoardItem>();
+            for (int i = 0; i < boardData.boardItems.Count; i++)
+            {
+                initialItems.Add(boardData.boardItems[i]);
+            }
+            boardItems = initialItems;
+
+            //foreach (BoardItem item in initialItems)
+            //{
+            //    if (item.IsEmpty)
+            //        continue;
+                
+            //    AddItem(item);
+            //}
+        }
+
+        private void UpdateBoardUI(Dictionary<int, BoardItem> boardState)
+        {
+            boardPageUI.ResetAllItems();
+            foreach (var item in boardState)
+            {
+                boardPageUI.UpdateData(item.Key, item.Value.item.ItemIcon);
+            }
+        }
+
+        public void AddItem(BoardItem item)
+        {
+            //AddItem(item.item);
+            AddItem(item.item);
         }
 
         private void PrepareUI()
@@ -57,12 +89,29 @@ namespace Board
 
         private void HandleStartDragging(int itemIndex)
         {
-            throw new NotImplementedException();
+            BoardItem boardItem = GetItemAt(itemIndex);
+            if (boardItem.IsEmpty)
+                return;
+            boardPageUI.CreateDraggetItem(boardItem.item.ItemIcon);
         }
 
         private void HandleSpawnItem(int itemIndex1, int itemIndex2)
         {
-            throw new NotImplementedException();
+            SwapItems(itemIndex1, itemIndex2);
+        }
+
+        private void SwapItems(int itemIndex1, int itemIndex2)
+        {
+            BoardItem boardItem1 = boardItems[itemIndex1];
+            boardItems[itemIndex1] = boardItems[itemIndex2];
+            boardItems[itemIndex2] = boardItem1;
+            InformAboutChange();
+
+        }
+
+        private void InformAboutChange()
+        {
+            OnInventoryUpdated?.Invoke(GetCurrentBoardState());
         }
 
         public BoardItem GetItemAt(int itemIndex)

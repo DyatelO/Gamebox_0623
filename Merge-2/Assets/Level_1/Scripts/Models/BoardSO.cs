@@ -11,6 +11,7 @@ namespace Board.Model
     {
         [field: SerializeField] public List<BoardItem> boardItems;
         [field: SerializeField] public int Size { get; private set; } = 10;
+
     }
 
     [Serializable]

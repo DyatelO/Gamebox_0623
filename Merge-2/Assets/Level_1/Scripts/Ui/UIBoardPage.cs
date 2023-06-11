@@ -147,5 +147,14 @@ namespace Board.UI
             DeselectAllItems();
             listOfItems[itemIndex].Select();
         }
+
+        internal void ResetAllItems()
+        {
+            foreach (var item in listOfItems)
+            {
+                item.ResetData();
+                item.Deselect();
+            }
+        }
     }
 }
