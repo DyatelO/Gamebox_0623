@@ -736,10 +736,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Interactions.csproj">
-      <Project>{123936BC-2A9B-FCF2-FC1A-C814FE0DF9CE}</Project>
-      <Name>Interactions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

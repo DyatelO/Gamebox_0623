@@ -922,21 +922,9 @@
       <Project>{63E86012-E02A-95DE-AE9B-CBBD5466BA26}</Project>
       <Name>Board</Name>
     </ProjectReference>
-    <ProjectReference Include="GridBoard.csproj">
-      <Project>{AECB2E41-5C53-904B-4E0E-168F570D3D87}</Project>
-      <Name>GridBoard</Name>
-    </ProjectReference>
     <ProjectReference Include="Items.csproj">
       <Project>{DE09E10A-0B3B-ABD4-D320-57C15AABF1B0}</Project>
       <Name>Items</Name>
-    </ProjectReference>
-    <ProjectReference Include="Interactions.csproj">
-      <Project>{123936BC-2A9B-FCF2-FC1A-C814FE0DF9CE}</Project>
-      <Name>Interactions</Name>
-    </ProjectReference>
-    <ProjectReference Include="MapGenerator.csproj">
-      <Project>{44794CC1-E0BE-050A-0C55-A1B04459F461}</Project>
-      <Name>MapGenerator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

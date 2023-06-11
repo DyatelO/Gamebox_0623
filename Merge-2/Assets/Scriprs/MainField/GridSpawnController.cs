@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //using static UnityEditor.Progress;
 //using static UnityEditor.Progress;
 
-[RequireComponent(typeof( GridLayoutGroup))]
+[RequireComponent(typeof( FlexibleGridLayout))]
 public class GridSpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject cellPrefab;
@@ -19,7 +19,7 @@ public class GridSpawnController : MonoBehaviour
 
     public event Action DisableGrid;
 
-    private GridLayoutGroup gridGroupe;
+    private FlexibleGridLayout gridGroupe;
     private List<GameObject> slots = new List<GameObject>();
     //private List<Transform> transforms = new List<Transform>(); 
     public List<UiSlot> emptySlots;
@@ -36,14 +36,14 @@ public class GridSpawnController : MonoBehaviour
 
     private void CreateGrid()
     {
-        gridGroupe = GetComponent<GridLayoutGroup>();
+        gridGroupe = GetComponent<FlexibleGridLayout>();
         gridGroupe.enabled = true;
-        Amount = gridGroupe.constraintCount;
+        Amount = gridGroupe.columns * gridGroupe.rows;
         //slots 
 
-        for (int i = 0; i < Amount; i++)
+        for (int i = 0; i < gridGroupe.columns; i++)
         {
-            for (int j = 0; j < Amount; j++)
+            for (int j = 0; j < gridGroupe.rows; j++)
             {
                 GameObject slot = Instantiate(cellPrefab);
                 slot.name = $"{cellPrefab.name}_{i}{j}";
