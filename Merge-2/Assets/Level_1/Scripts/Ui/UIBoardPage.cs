@@ -53,13 +53,16 @@ public class UIBoardPage : MonoBehaviour
         if (listOfItems.Count > itemaIndex)
         {
             listOfItems[itemaIndex].SetData(itemIcon);
+                   
         }
+
     }
 
 
     private void HaHandleEndDrag(UiBoardItem boardItemUI)
     {
         ResetDraggedItem();
+        DeselectAllItems();
     }
 
     private void ResetDraggedItem()
@@ -77,6 +80,8 @@ public class UIBoardPage : MonoBehaviour
         currentlyDraggedItemIndex = index;
         HaHandleItemSelection(boardItemUI);
         OnStartDragging?.Invoke(index);
+
+        Debug.Log(currentlyDraggedItemIndex);
     }
 
     public void CreateDraggetItem(Sprite sprite)
@@ -98,14 +103,14 @@ public class UIBoardPage : MonoBehaviour
 
     private void HaHandleItemSelection(UiBoardItem boardItemUI)
     {
-        //listOfItems[currentlyDraggedItemIndex].Select();
         int index = listOfItems.IndexOf(boardItemUI);
         if (index == -1)
         {
             return;
         }
+        listOfItems[index].Select();
 
-        //Debug.Log(boardItemUI.name);
+        Debug.Log(boardItemUI.name);
     }
 
     public void Show()
