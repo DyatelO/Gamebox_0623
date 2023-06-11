@@ -10,7 +10,20 @@ public class UIBoardPage : MonoBehaviour
 
     [SerializeField] private RectTransform contentPanel;
 
+    [SerializeField] private MouseFolower mouseFolower;
+
     private List<UiBoardItem> listOfItems = new List<UiBoardItem>();
+
+
+    public Sprite image, image2;
+
+    private int currentlyDraggedItemIndex = -1;
+
+    private void Awake()
+    {
+        //Hide();
+        mouseFolower.Toggle(false);
+    }
 
     public void InitializeBoardUI(int itemsAmount)
     {
@@ -22,35 +35,80 @@ public class UIBoardPage : MonoBehaviour
             listOfItems.Add(uiItem);
 
             uiItem.OnBoardItemClicked += HaHandleItemSelection;
-            uiItem.OnBoardItemDroppedOn += HaHandleDroppedOn;
+            uiItem.OnBoardItemDroppedOn += HaHandleSwap;
             uiItem.OnBoardItemBeginDrag += HaHandleBeginDrag;
             uiItem.OnBoardItemEndDrag += HaHandleEndDrag;
+            //uiItem.OnBoardItemDrag += 
         }
     }
 
-    private void HaHandleEndDrag(UiBoardItem obj)
+
+    private void HaHandleEndDrag(UiBoardItem boardItemUI)
     {
-        throw new NotImplementedException();
+        int index = listOfItems.IndexOf(boardItemUI);
+        if (index == -1)
+        {
+            mouseFolower.Toggle(false);
+            currentlyDraggedItemIndex = -1;
+            return;
+        }
+
+        mouseFolower.Toggle(false);
+        currentlyDraggedItemIndex = -1;
     }
 
-    private void HaHandleBeginDrag(UiBoardItem obj)
+    private void HaHandleBeginDrag(UiBoardItem boardItemUI)
     {
-        throw new NotImplementedException();
+        mouseFolower.Toggle(true);
+
+        int index = listOfItems.IndexOf(boardItemUI);
+        if (index == -1)
+            return;
+
+        currentlyDraggedItemIndex = index;
+
+        mouseFolower.SetData(index == 0 ? image : image2);
+
+        Debug.Log(index);
     }
 
-    private void HaHandleDroppedOn(UiBoardItem obj)
+    private void HaHandleSwap(UiBoardItem boardItemUI)
     {
-        throw new NotImplementedException();
+        int index = listOfItems.IndexOf(boardItemUI);
+        if (index == -1)
+        {
+            mouseFolower.Toggle(false);
+            currentlyDraggedItemIndex = -1;
+            return;
+        }
+
+        listOfItems[currentlyDraggedItemIndex].SetData(
+            index == 0 ? image : image2);      
+        
+        listOfItems[index].SetData(
+            currentlyDraggedItemIndex == 0 ? image : image2);
+
+        mouseFolower.Toggle(false);
+        currentlyDraggedItemIndex = -1;
+
+        
     }
 
-    private void HaHandleItemSelection(UiBoardItem obj)
+    private void HaHandleItemSelection(UiBoardItem boardItemUI)
     {
-        Debug.Log(obj.name);
+        //listOfItems[currentlyDraggedItemIndex].Select();
+
+
+        Debug.Log(boardItemUI.name);
     }
 
     public void Show()
     {
         gameObject.SetActive(true);
+
+        listOfItems[0].SetData(image);
+        listOfItems[1].SetData(image2);
+
     }
 
     public void Hide()

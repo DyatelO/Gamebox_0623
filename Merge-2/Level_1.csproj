@@ -56,9 +56,11 @@
     <Analyzer Include="G:\Program Files\Microsoft Visual Studio\2022\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Level_1\Scripts\Ui\UIBoardPage.cs" />
-    <Compile Include="Assets\Level_1\Scripts\Ui\UiBoardItem.cs" />
     <Compile Include="Assets\Level_1\Scripts\BoardController.cs" />
+    <Compile Include="Assets\Level_1\Scripts\Ui\UiBoardItem.cs" />
+    <Compile Include="Assets\Level_1\Scripts\Ui\UiBoardDescription.cs" />
+    <Compile Include="Assets\Level_1\Scripts\Ui\UIBoardPage.cs" />
+    <Compile Include="Assets\Level_1\Scripts\Ui\MouseFolower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Level_1\Level_1.asmdef" />

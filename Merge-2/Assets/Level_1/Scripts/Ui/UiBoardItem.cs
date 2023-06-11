@@ -5,15 +5,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UiBoardItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler, IDropHandler
+public class UiBoardItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler, IDropHandler
 {
     [SerializeField] private Image itemImage;
     [SerializeField] private Image borderImage;
+
+    //private CanvasGroup _canvasGroup;
 
     public event Action<UiBoardItem> OnBoardItemClicked;
     public event Action<UiBoardItem> OnBoardItemDroppedOn;
     public event Action<UiBoardItem> OnBoardItemBeginDrag;
     public event Action<UiBoardItem> OnBoardItemEndDrag;
+    public event Action<UiBoardItem> OnBoardItemDrag;
 
     private bool isEmpty = true;
 
@@ -53,6 +56,7 @@ public class UiBoardItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         if (isEmpty)
             return;
         OnBoardItemBeginDrag?.Invoke(this);
+
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -63,17 +67,17 @@ public class UiBoardItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     public void OnEndDrag(PointerEventData eventData)
     {
         OnBoardItemEndDrag?.Invoke(this);
+
+        //_canvasGroup.blocksRaycasts = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new NotImplementedException();
+        OnBoardItemDrag?.Invoke(this);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         OnBoardItemClicked?.Invoke(this);   
     }
-
-
 }
