@@ -27,7 +27,7 @@ public class UiBoardItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         Deselect();
     }
 
-    private void Deselect()
+    public void Deselect()
     {
         borderImage.enabled = false;
     }

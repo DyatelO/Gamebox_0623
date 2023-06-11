@@ -14,10 +14,12 @@ public class UIBoardPage : MonoBehaviour
 
     private List<UiBoardItem> listOfItems = new List<UiBoardItem>();
 
-
-    public Sprite image, image2;
-
     private int currentlyDraggedItemIndex = -1;
+
+    public event Action<int> OnItemActionRequested;
+    public event Action<int> OnStartDragging;
+
+    public event Action<int, int> OnSwapItem;
 
     private void Awake()
     {
@@ -42,34 +44,41 @@ public class UIBoardPage : MonoBehaviour
         }
     }
 
+    public void UpdateData(int itemaIndex, Sprite itemIcon)
+    {
+        if (listOfItems.Count > itemaIndex)
+        {
+            listOfItems[itemaIndex].SetData(itemIcon);
+        }
+    }
+
 
     private void HaHandleEndDrag(UiBoardItem boardItemUI)
     {
-        int index = listOfItems.IndexOf(boardItemUI);
-        if (index == -1)
-        {
-            mouseFolower.Toggle(false);
-            currentlyDraggedItemIndex = -1;
-            return;
-        }
+        ResetDraggedItem();
+    }
 
+    private void ResetDraggedItem()
+    {
         mouseFolower.Toggle(false);
         currentlyDraggedItemIndex = -1;
     }
 
     private void HaHandleBeginDrag(UiBoardItem boardItemUI)
     {
-        mouseFolower.Toggle(true);
-
         int index = listOfItems.IndexOf(boardItemUI);
         if (index == -1)
             return;
 
         currentlyDraggedItemIndex = index;
+        HaHandleItemSelection(boardItemUI);
+        OnStartDragging?.Invoke(index);
+    }
 
-        mouseFolower.SetData(index == 0 ? image : image2);
-
-        Debug.Log(index);
+    private void CreateDraggetItem(Sprite sprite)
+    {
+        mouseFolower.Toggle(true);
+        mouseFolower.SetData(sprite);
     }
 
     private void HaHandleSwap(UiBoardItem boardItemUI)
@@ -77,43 +86,47 @@ public class UIBoardPage : MonoBehaviour
         int index = listOfItems.IndexOf(boardItemUI);
         if (index == -1)
         {
-            mouseFolower.Toggle(false);
-            currentlyDraggedItemIndex = -1;
             return;
         }
 
-        listOfItems[currentlyDraggedItemIndex].SetData(
-            index == 0 ? image : image2);      
-        
-        listOfItems[index].SetData(
-            currentlyDraggedItemIndex == 0 ? image : image2);
-
-        mouseFolower.Toggle(false);
-        currentlyDraggedItemIndex = -1;
-
-        
+        OnSwapItem?.Invoke(currentlyDraggedItemIndex, index);
     }
 
     private void HaHandleItemSelection(UiBoardItem boardItemUI)
     {
         //listOfItems[currentlyDraggedItemIndex].Select();
+        int index = listOfItems.IndexOf(boardItemUI);
+        if (index == -1)
+        {
+            return;
+        }
 
-
-        Debug.Log(boardItemUI.name);
+        //Debug.Log(boardItemUI.name);
     }
 
     public void Show()
     {
         gameObject.SetActive(true);
+        ResetSelection();
+    }
 
-        listOfItems[0].SetData(image);
-        listOfItems[1].SetData(image2);
+    private void ResetSelection()
+    {
+        DeselectAllItems();
+    }
 
+    private void DeselectAllItems()
+    {
+        for (int i = 0; i < listOfItems.Count; i++)
+        {
+            listOfItems[i].Deselect();
+        }
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+        ResetDraggedItem();
     }
 
 }

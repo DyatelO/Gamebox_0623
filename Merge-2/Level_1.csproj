@@ -61,6 +61,8 @@
     <Compile Include="Assets\Level_1\Scripts\Ui\UiBoardDescription.cs" />
     <Compile Include="Assets\Level_1\Scripts\Ui\UIBoardPage.cs" />
     <Compile Include="Assets\Level_1\Scripts\Ui\MouseFolower.cs" />
+    <Compile Include="Assets\Level_1\Scripts\Models\ItemSO.cs" />
+    <Compile Include="Assets\Level_1\Scripts\Models\BoardSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Level_1\Level_1.asmdef" />
