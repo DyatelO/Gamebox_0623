@@ -328,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 2576591583837285731, guid: 82c39b34c020d8d4b8c9ffb7f90ff43b, type: 3}
   contentPanel: {fileID: 4889475989689171922}
+  mouseFolower: {fileID: 0}
 --- !u!1 &1103004595248383883
 GameObject:
   m_ObjectHideFlags: 0

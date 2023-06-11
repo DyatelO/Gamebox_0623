@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiBoardDescription : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Image itemImage;
+
+
+
+    public void Awake()
     {
-        
+        ResetDescription();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetDescription()
     {
-        
+        itemImage.gameObject.SetActive(false);
+    }
+
+    public void SetDescription(Sprite sprite)
+    {
+        itemImage.gameObject.SetActive(true);
+        itemImage.sprite = sprite;
     }
 }

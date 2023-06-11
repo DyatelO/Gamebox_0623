@@ -12,6 +12,8 @@ public class UIBoardPage : MonoBehaviour
 
     [SerializeField] private MouseFolower mouseFolower;
 
+    //[SerializeField] private UiBoardDescription uiBoardDescription;
+
     private List<UiBoardItem> listOfItems = new List<UiBoardItem>();
 
     private int currentlyDraggedItemIndex = -1;
@@ -20,6 +22,8 @@ public class UIBoardPage : MonoBehaviour
     public event Action<int> OnStartDragging;
 
     public event Action<int, int> OnSwapItem;
+
+    public event Action<int> OnDescriptionRequested;
 
     private void Awake()
     {
@@ -75,7 +79,7 @@ public class UIBoardPage : MonoBehaviour
         OnStartDragging?.Invoke(index);
     }
 
-    private void CreateDraggetItem(Sprite sprite)
+    public void CreateDraggetItem(Sprite sprite)
     {
         mouseFolower.Toggle(true);
         mouseFolower.SetData(sprite);
@@ -129,4 +133,11 @@ public class UIBoardPage : MonoBehaviour
         ResetDraggedItem();
     }
 
+    public void UpdateDescription(int itemIndex, Sprite itemIcon, string name)
+    {
+        //UpdateData(itemIndex, itemIcon);
+        //uiBoardDescription.SetDescription(itemIcon);
+        DeselectAllItems();
+        listOfItems[itemIndex].Select();
+    }
 }
