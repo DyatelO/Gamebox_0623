@@ -13,7 +13,7 @@ namespace Board
         [SerializeField] private BoardSO boardData;
 
         [SerializeField] private List<BoardItem> boardItems; // = new List<BoardItem>();
-        //public List<BoardItem> initialItems = new List<BoardItem>();
+        public List<BoardItem> initialItems = new List<BoardItem>();
         [field: SerializeField] public int Size { get; private set; } = 10;
 
         public event Action<Dictionary<int, BoardItem>> OnInventoryUpdated;
@@ -30,20 +30,20 @@ namespace Board
             Initialize();
             OnInventoryUpdated += UpdateBoardUI;
 
-            List<BoardItem> initialItems = new List<BoardItem>();
-            for (int i = 0; i < boardData.boardItems.Count; i++)
-            {
-                initialItems.Add(boardData.boardItems[i]);
-            }
-            boardItems = initialItems;
-
-            //foreach (BoardItem item in initialItems)
+            //List<BoardItem> initialItems = new List<BoardItem>();
+            //for (int i = 0; i < boardData.boardItems.Count; i++)
             //{
-            //    if (item.IsEmpty)
-            //        continue;
-                
-            //    AddItem(item);
+            //    initialItems.Add(boardData.boardItems[i]);
             //}
+            //boardItems = initialItems;
+
+            foreach (BoardItem item in boardData.boardItems)
+            {
+                if (item.IsEmpty)
+                    continue;
+
+                AddItem(item);
+            }
         }
 
         private void UpdateBoardUI(Dictionary<int, BoardItem> boardState)
@@ -160,8 +160,8 @@ namespace Board
                     {
                         item = item
                     };
+                    return;
                 }
-                return;
                 //boardItems.Add(BoardItem.GetEmptyItem());
             }
         }
