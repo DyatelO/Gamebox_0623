@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Board
   m_EditorClassIdentifier: 
   boardItems:
-  - item: {fileID: 11400000, guid: 7d0d1535084904f4c806fba5a9de816e, type: 2}
-  - item: {fileID: 11400000, guid: 288c9c3b58741424d886cf314a6d4568, type: 2}
   - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 288c9c3b58741424d886cf314a6d4568, type: 2}
+  - item: {fileID: 11400000, guid: 7d0d1535084904f4c806fba5a9de816e, type: 2}
   - item: {fileID: 11400000, guid: 5e9ed2f6b275345499cf357dc1ef1f11, type: 2}
   <Size>k__BackingField: 10
