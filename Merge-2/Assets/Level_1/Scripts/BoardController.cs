@@ -155,11 +155,14 @@ namespace Board
             for (int i = 0; i < boardItems.Count; i++)
             {
                 if (boardItems[i].IsEmpty)
+                {
                     boardItems[i] = new BoardItem
                     {
                         item = item
                     };
-                boardItems.Add(BoardItem.GetEmptyItem());
+                }
+                return;
+                //boardItems.Add(BoardItem.GetEmptyItem());
             }
         }
 
