@@ -24,5 +24,11 @@ namespace Board.Model
         FireSpell,
         Restore
     }
+
+    [CreateAssetMenu(fileName ="Obstacle", menuName ="ItemsSO/Obstacle")]
+    public class ItemObstacleSO : ItemSO
+    {
+        public bool IsObstacle;
+    }
 }
 
