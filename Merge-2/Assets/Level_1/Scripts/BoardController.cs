@@ -171,7 +171,7 @@ namespace Board
                     {
                         item = item
                     };
-                    return;
+                    
                 }
                 //boardItems.Add(BoardItem.GetEmptyItem());
             }
