@@ -30,20 +30,13 @@ namespace Board
             Initialize();
             OnInventoryUpdated += UpdateBoardUI;
 
-            List<BoardItem> initialItems = new List<BoardItem>();
-            for (int i = 0; i < boardData.boardItems.Count; i++)
+            foreach (BoardItem item in boardData.boardItems)
             {
-                initialItems.Add(boardData.boardItems[i]);
-            }
-            boardItems = initialItems;
+                if (item.IsEmpty)
+                    continue;
 
-            //foreach (BoardItem item in initialItems)
-            //{
-            //    if (item.IsEmpty)
-            //        continue;
-                
-            //    AddItem(item);
-            //}
+                AddItem(item);
+            }
         }
 
         private void UpdateBoardUI(Dictionary<int, BoardItem> boardState)
@@ -57,7 +50,6 @@ namespace Board
 
         public void AddItem(BoardItem item)
         {
-            //AddItem(item.item);
             AddItem(item.item);
         }
 
@@ -75,7 +67,10 @@ namespace Board
             BoardItem boardItem = GetItemAt(itemIndex);
 
             if (boardItem.IsEmpty)
+            {
+                boardPageUI.ResetSelection();
                 return;
+            }
 
             ItemSO item = boardItem.item;
             boardPageUI.UpdateDescription(itemIndex, item.ItemIcon, item.Name);
@@ -91,7 +86,10 @@ namespace Board
         {
             BoardItem boardItem = GetItemAt(itemIndex);
             if (boardItem.IsEmpty)
+            {
+                boardPageUI.ResetSelection();
                 return;
+            }
             boardPageUI.CreateDraggetItem(boardItem.item.ItemIcon);
         }
 
@@ -101,6 +99,7 @@ namespace Board
             {
                 MergeItems(itemIndex1, itemIndex2);
             }
+            //SwapItems(itemIndex1, itemIndex2);
         }
 
         //private void SwapItems(int itemIndex1, int itemIndex2)
@@ -110,7 +109,7 @@ namespace Board
         //    boardItems[itemIndex2] = boardItem1;
         //    InformAboutChange();
 
-        //}       
+        //}
         private void MergeItems(int itemIndex1, int itemIndex2)
         {
             boardItems[itemIndex2] = BoardItem.GetEmptyItem();
@@ -162,6 +161,8 @@ namespace Board
 
         public void AddItem(ItemSO item)
         {
+
+
             for (int i = 0; i < boardItems.Count; i++)
             {
                 if (boardItems[i].IsEmpty)
@@ -170,8 +171,8 @@ namespace Board
                     {
                         item = item
                     };
+                    return;
                 }
-                return;
                 //boardItems.Add(BoardItem.GetEmptyItem());
             }
         }

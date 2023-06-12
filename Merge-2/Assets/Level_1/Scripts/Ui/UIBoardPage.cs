@@ -42,10 +42,10 @@ namespace Board.UI
                 uiItem.transform.SetParent(contentPanel, false);
                 listOfItems.Add(uiItem);
 
-                uiItem.OnBoardItemClicked += HaHandleItemSelection;
-                uiItem.OnBoardItemDroppedOn += HaHandleMerge;
-                uiItem.OnBoardItemBeginDrag += HaHandleBeginDrag;
-                uiItem.OnBoardItemEndDrag += HaHandleEndDrag;
+                uiItem.OnBoardItemClicked += HandleItemSelection;
+                uiItem.OnBoardItemDroppedOn += HandleMerge;
+                uiItem.OnBoardItemBeginDrag += HandleBeginDrag;
+                uiItem.OnBoardItemEndDrag += HandleEndDrag;
                 //uiItem.OnBoardItemDrag += 
             }
         }
@@ -61,7 +61,7 @@ namespace Board.UI
         }
 
 
-        private void HaHandleEndDrag(UiBoardItem boardItemUI)
+        private void HandleEndDrag(UiBoardItem boardItemUI)
         {
             ResetDraggedItem();
             DeselectAllItems();
@@ -73,14 +73,14 @@ namespace Board.UI
             currentlyDraggedItemIndex = -1;
         }
 
-        private void HaHandleBeginDrag(UiBoardItem boardItemUI)
+        private void HandleBeginDrag(UiBoardItem boardItemUI)
         {
             int index = listOfItems.IndexOf(boardItemUI);
             if (index == -1)
                 return;
 
             currentlyDraggedItemIndex = index;
-            HaHandleItemSelection(boardItemUI);
+            HandleItemSelection(boardItemUI);
             OnStartDragging?.Invoke(index);
 
             Debug.Log(currentlyDraggedItemIndex);
@@ -92,7 +92,7 @@ namespace Board.UI
             mouseFolower.SetData(sprite);
         }
 
-        private void HaHandleMerge(UiBoardItem boardItemUI)
+        private void HandleMerge(UiBoardItem boardItemUI)
         {
             int index = listOfItems.IndexOf(boardItemUI);
             if (index == -1)
@@ -103,7 +103,7 @@ namespace Board.UI
             OnMergeItem?.Invoke(currentlyDraggedItemIndex, index);
         }
 
-        private void HaHandleItemSelection(UiBoardItem boardItemUI)
+        private void HandleItemSelection(UiBoardItem boardItemUI)
         {
             int index = listOfItems.IndexOf(boardItemUI);
             if (index == -1)
@@ -121,7 +121,7 @@ namespace Board.UI
             ResetSelection();
         }
 
-        private void ResetSelection()
+        public void ResetSelection()
         {
             DeselectAllItems();
         }
