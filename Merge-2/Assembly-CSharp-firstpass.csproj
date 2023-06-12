@@ -844,18 +844,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Items.csproj">
-      <Project>{DE09E10A-0B3B-ABD4-D320-57C15AABF1B0}</Project>
-      <Name>Items</Name>
-    </ProjectReference>
-    <ProjectReference Include="Board.csproj">
-      <Project>{63E86012-E02A-95DE-AE9B-CBBD5466BA26}</Project>
-      <Name>Board</Name>
-    </ProjectReference>
-    <ProjectReference Include="Level_1.csproj">
-      <Project>{1F048856-1581-62D8-C4AD-7787475D743A}</Project>
-      <Name>Level_1</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

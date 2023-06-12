@@ -14,7 +14,7 @@ namespace Board
 
         [SerializeField] private List<BoardItem> boardItems; // = new List<BoardItem>();
         //public List<BoardItem> initialItems = new List<BoardItem>();
-        [field: SerializeField] public int Size => boardData.Size;
+        public int Size => boardData.Size;
 
         public event Action<Dictionary<int, BoardItem>> OnInventoryUpdated;
 
@@ -47,7 +47,7 @@ namespace Board
                 int randomIndex = randomize.Next(0, boardData.boardItems.Count);
                 boardItems[i] = boardData.boardItems[randomIndex];
 
-                Debug.Log(randomIndex + "RANDOM!!!!!!!!!!!");
+                //Debug.Log(randomIndex + "RANDOM!!!!!!!!!!!");
             }
         }
 
