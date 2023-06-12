@@ -45,8 +45,6 @@ public class FlexibleGridLayout : LayoutGroup
             columns = Mathf.CeilToInt(transform.childCount / (float)rows);
         }
 
-        
-
         float parentWidth = rectTransform.rect.width ;
         float parentHeight = rectTransform.rect.height;
 
