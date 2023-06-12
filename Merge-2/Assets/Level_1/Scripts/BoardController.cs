@@ -18,6 +18,9 @@ namespace Board
 
         public event Action<Dictionary<int, BoardItem>> OnInventoryUpdated;
 
+
+        System.Random randomize = new System.Random();
+
         private void Awake()
         {
             PrepareUI();
@@ -36,6 +39,15 @@ namespace Board
                     continue;
 
                 AddItem(item);
+            }
+
+            for (int i = 0; i < boardItems.Count; i++)
+            {
+                //randomize = new System.Random();
+                int randomIndex = randomize.Next(0, boardData.boardItems.Count);
+                boardItems[i] = boardData.boardItems[randomIndex];
+
+                Debug.Log(randomIndex + "RANDOM!!!!!!!!!!!");
             }
         }
 
@@ -161,8 +173,6 @@ namespace Board
 
         public void AddItem(ItemSO item)
         {
-
-
             for (int i = 0; i < boardItems.Count; i++)
             {
                 if (boardItems[i].IsEmpty)
@@ -175,6 +185,9 @@ namespace Board
                 }
                 //boardItems.Add(BoardItem.GetEmptyItem());
             }
+
+
+
         }
 
     }
