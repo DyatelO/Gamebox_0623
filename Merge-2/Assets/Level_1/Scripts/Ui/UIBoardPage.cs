@@ -101,6 +101,7 @@ namespace Board.UI
             }
 
             OnMergeItem?.Invoke(currentlyDraggedItemIndex, index);
+            HandleItemSelection(boardItemUI);
         }
 
         private void HandleItemSelection(UiBoardItem boardItemUI)
