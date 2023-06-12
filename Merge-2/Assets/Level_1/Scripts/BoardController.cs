@@ -13,8 +13,8 @@ namespace Board
         [SerializeField] private BoardSO boardData;
 
         [SerializeField] private List<BoardItem> boardItems; // = new List<BoardItem>();
-        public List<BoardItem> initialItems = new List<BoardItem>();
-        [field: SerializeField] public int Size { get; private set; } = 10;
+        //public List<BoardItem> initialItems = new List<BoardItem>();
+        [field: SerializeField] public int Size => boardData.Size;
 
         public event Action<Dictionary<int, BoardItem>> OnInventoryUpdated;
 
@@ -30,20 +30,20 @@ namespace Board
             Initialize();
             OnInventoryUpdated += UpdateBoardUI;
 
-            //List<BoardItem> initialItems = new List<BoardItem>();
-            //for (int i = 0; i < boardData.boardItems.Count; i++)
-            //{
-            //    initialItems.Add(boardData.boardItems[i]);
-            //}
-            //boardItems = initialItems;
-
-            foreach (BoardItem item in boardData.boardItems)
+            List<BoardItem> initialItems = new List<BoardItem>();
+            for (int i = 0; i < boardData.boardItems.Count; i++)
             {
-                if (item.IsEmpty)
-                    continue;
-
-                AddItem(item);
+                initialItems.Add(boardData.boardItems[i]);
             }
+            boardItems = initialItems;
+
+            //foreach (BoardItem item in initialItems)
+            //{
+            //    if (item.IsEmpty)
+            //        continue;
+                
+            //    AddItem(item);
+            //}
         }
 
         private void UpdateBoardUI(Dictionary<int, BoardItem> boardState)
@@ -64,7 +64,7 @@ namespace Board
         private void PrepareUI()
         {
             boardPageUI.InitializeBoardUI(Size);
-            boardPageUI.OnSwapItem += HandleSpawnItem;
+            boardPageUI.OnMergeItem += HandleMergeItem;
             boardPageUI.OnStartDragging += HandleStartDragging;
             boardPageUI.OnItemActionRequested += HandleActionRequested;
             boardPageUI.OnDescriptionRequested += HandleDescriptionRequested;
@@ -95,16 +95,26 @@ namespace Board
             boardPageUI.CreateDraggetItem(boardItem.item.ItemIcon);
         }
 
-        private void HandleSpawnItem(int itemIndex1, int itemIndex2)
+        private void HandleMergeItem(int itemIndex1, int itemIndex2)
         {
-            SwapItems(itemIndex1, itemIndex2);
+            if (boardItems[itemIndex1].item.ID == boardItems[itemIndex2].item.ID)
+            {
+                MergeItems(itemIndex1, itemIndex2);
+            }
         }
 
-        private void SwapItems(int itemIndex1, int itemIndex2)
+        //private void SwapItems(int itemIndex1, int itemIndex2)
+        //{
+        //    BoardItem boardItem1 = boardItems[itemIndex1];
+        //    boardItems[itemIndex1] = boardItems[itemIndex2];
+        //    boardItems[itemIndex2] = boardItem1;
+        //    InformAboutChange();
+
+        //}       
+        private void MergeItems(int itemIndex1, int itemIndex2)
         {
-            BoardItem boardItem1 = boardItems[itemIndex1];
-            boardItems[itemIndex1] = boardItems[itemIndex2];
-            boardItems[itemIndex2] = boardItem1;
+            boardItems[itemIndex2] = BoardItem.GetEmptyItem();
+            boardItems[itemIndex1] = BoardItem.GetEmptyItem();
             InformAboutChange();
 
         }
@@ -160,8 +170,8 @@ namespace Board
                     {
                         item = item
                     };
-                    return;
                 }
+                return;
                 //boardItems.Add(BoardItem.GetEmptyItem());
             }
         }

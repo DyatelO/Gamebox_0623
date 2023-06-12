@@ -23,7 +23,7 @@ namespace Board.UI
         public event Action<int> OnItemActionRequested;
         public event Action<int> OnStartDragging;
 
-        public event Action<int, int> OnSwapItem;
+        public event Action<int, int> OnMergeItem;
 
         public event Action<int> OnDescriptionRequested;
 
@@ -43,7 +43,7 @@ namespace Board.UI
                 listOfItems.Add(uiItem);
 
                 uiItem.OnBoardItemClicked += HaHandleItemSelection;
-                uiItem.OnBoardItemDroppedOn += HaHandleSwap;
+                uiItem.OnBoardItemDroppedOn += HaHandleMerge;
                 uiItem.OnBoardItemBeginDrag += HaHandleBeginDrag;
                 uiItem.OnBoardItemEndDrag += HaHandleEndDrag;
                 //uiItem.OnBoardItemDrag += 
@@ -92,7 +92,7 @@ namespace Board.UI
             mouseFolower.SetData(sprite);
         }
 
-        private void HaHandleSwap(UiBoardItem boardItemUI)
+        private void HaHandleMerge(UiBoardItem boardItemUI)
         {
             int index = listOfItems.IndexOf(boardItemUI);
             if (index == -1)
@@ -100,7 +100,7 @@ namespace Board.UI
                 return;
             }
 
-            OnSwapItem?.Invoke(currentlyDraggedItemIndex, index);
+            OnMergeItem?.Invoke(currentlyDraggedItemIndex, index);
         }
 
         private void HaHandleItemSelection(UiBoardItem boardItemUI)
